@@ -1,0 +1,297 @@
+:root {
+  --ink: #11140f;
+  --paper: #f2f0e9;
+  --panel: #faf9f4;
+  --acid: #d7ff3f;
+  --orange: #ff5a1f;
+  --muted: #73776c;
+  --line: #cfd1c7;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+}
+
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+
+.site-header {
+  height: 74px;
+  padding: 0 clamp(22px, 5vw, 76px);
+  background: var(--ink);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand { color: white; text-decoration: none; display: flex; align-items: center; gap: 12px; font-family: "Barlow Condensed"; font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+.brand b { color: var(--acid); }
+.brand-mark { width: 35px; height: 35px; background: var(--acid); color: var(--ink); display: grid; place-items: center; font-weight: 800; transform: skew(-8deg); }
+.header-meta { font-family: "Barlow Condensed"; font-size: 15px; letter-spacing: 1.6px; color: #bfc3b7; display: flex; gap: 14px; align-items: center; }
+.header-meta span { width: 5px; height: 5px; border-radius: 50%; background: var(--acid); }
+
+main { overflow: hidden; }
+.hero { min-height: 390px; padding: 68px clamp(22px, 7vw, 110px); background: var(--ink); color: white; display: flex; align-items: center; justify-content: space-between; position: relative; }
+.hero::after { content: ""; position: absolute; inset: auto -8% -110px auto; width: 460px; height: 260px; border: 28px solid #242820; transform: rotate(-12deg); }
+.hero-copy { position: relative; z-index: 1; }
+.eyebrow { color: var(--acid); font-family: "Barlow Condensed"; font-weight: 700; letter-spacing: 2.4px; margin: 0 0 12px; }
+h1, h2, h3 { font-family: "Barlow Condensed", sans-serif; margin: 0; }
+h1 { font-size: clamp(60px, 8vw, 112px); line-height: .82; letter-spacing: -2px; }
+h1 em { font-style: normal; color: var(--acid); }
+.hero-text { max-width: 540px; color: #c7cbc0; font-size: 18px; line-height: 1.55; margin: 28px 0 0; }
+.hero-stat { position: relative; z-index: 1; display: grid; grid-template-columns: auto auto; align-items: end; gap: 0 10px; transform: rotate(-4deg); opacity: .9; }
+.hero-stat span { font-family: "Barlow Condensed"; font-size: 106px; font-weight: 800; line-height: .7; color: var(--orange); }
+.hero-stat small { font-family: "Barlow Condensed"; font-size: 20px; letter-spacing: 2px; }
+.hero-stat i { grid-column: 1 / -1; font-size: 35px; text-align: center; height: 26px; }
+
+.setup-panel, .plan-section { padding: 70px clamp(22px, 7vw, 110px); max-width: 1500px; margin: auto; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; padding-bottom: 18px; border-bottom: 3px solid var(--ink); margin-bottom: 34px; }
+.section-heading > div:first-child { display: flex; align-items: baseline; gap: 16px; }
+.section-heading > div:first-child > span { color: var(--orange); font-family: "Barlow Condensed"; font-size: 18px; font-weight: 800; }
+.section-heading h2 { font-size: clamp(34px, 4vw, 52px); line-height: 1; }
+.text-button { border: 0; background: none; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 8px 0; }
+.text-button:hover { color: var(--orange); }
+
+.setup-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, .8fr); gap: 26px; }
+.lift-inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.lift-field { padding: 21px 18px 21px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(110px, 1fr) 120px 92px; align-items: center; gap: 12px; }
+.lift-field:nth-child(odd) { padding-right: 25px; border-right: 1px solid var(--line); }
+.lift-field:nth-child(even) { padding-left: 25px; }
+.lift-name strong { display: block; font-family: "Barlow Condensed"; font-size: 21px; letter-spacing: .4px; }
+.lift-name small, .input-wrap small { color: var(--muted); font-size: 11px; }
+.input-wrap { position: relative; }
+.input-wrap input { width: 100%; height: 47px; padding: 0 38px 0 12px; border: 1px solid #b9bcb2; background: white; font-weight: 700; border-radius: 2px; }
+.input-wrap span { position: absolute; right: 11px; top: 13px; color: var(--muted); font-size: 12px; font-weight: 700; }
+.increment-wrap input { padding-right: 30px; }
+
+.settings-card { background: var(--ink); color: white; padding: 27px; display: flex; flex-direction: column; gap: 22px; }
+.settings-card label > span, .plate-inventory > span { font-family: "Barlow Condensed"; display: block; font-size: 17px; letter-spacing: 1px; font-weight: 700; }
+.settings-card label small, .plate-inventory small { display: block; color: #9fa499; line-height: 1.4; margin: 4px 0 11px; font-size: 11px; }
+.settings-card select { width: 100%; height: 45px; border: 1px solid #555b50; color: white; background: #20241d; padding: 0 12px; }
+
+.settings-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: "Barlow Condensed";
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: white;
+  margin: 5px 0;
+}
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--acid);
+  cursor: pointer;
+}
+.backup-actions {
+  border-top: 1px solid #33392f;
+  padding-top: 18px;
+  margin-top: 5px;
+}
+.backup-actions > span {
+  font-family: "Barlow Condensed";
+  display: block;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+.backup-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.outline-button {
+  border: 1px solid var(--acid);
+  background: transparent;
+  color: var(--acid);
+  font-family: "Barlow Condensed";
+  font-weight: 700;
+  padding: 10px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+.outline-button:hover {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+#inventoryChips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.inventory-chip { border: 1px solid #555b50; background: transparent; padding: 7px 9px; font-size: 11px; font-weight: 700; color: #7f8579; transition: background .15s, border-color .15s, color .15s, transform .15s; }
+.inventory-chip:hover { border-color: var(--acid); color: white; }
+.inventory-chip.selected { border-color: var(--acid); background: var(--acid); color: var(--ink); }
+.inventory-chip:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+.inventory-chip.shake { animation: shake .3s linear; }
+.inventory-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; color: #9fa499; font-size: 10px; letter-spacing: .5px; }
+.inventory-footer button { padding: 0; border: 0; background: none; color: var(--acid); font-size: 10px; font-weight: 700; letter-spacing: .7px; }
+.inventory-footer button:disabled { color: #64695f; cursor: default; }
+@keyframes shake { 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
+
+.plan-section { padding-top: 30px; }
+.plan-heading { align-items: center; }
+.week-control { display: flex; align-items: stretch; border: 1px solid var(--ink); height: 46px; }
+.week-control button { width: 43px; border: 0; background: var(--ink); color: white; font-size: 18px; }
+.week-control button:hover { background: var(--orange); }
+.week-control label { display: flex; align-items: center; padding-left: 14px; font-family: "Barlow Condensed"; font-weight: 700; letter-spacing: 1px; }
+.week-control input { width: 53px; border: 0; background: transparent; font-weight: 800; text-align: center; }
+.week-summary { display: flex; gap: 10px; margin: -15px 0 30px; color: var(--muted); font-size: 13px; }
+.week-summary strong { color: var(--ink); }
+
+.workout-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+.workout-tabs button { position: relative; padding: 18px 20px; text-align: left; border: 1px solid var(--line); background: #e7e5dd; font-family: "Barlow Condensed"; font-size: 24px; font-weight: 800; }
+.workout-tabs button small { display: block; color: var(--muted); font-size: 11px; letter-spacing: 1.5px; margin-bottom: 3px; }
+.workout-tabs button span { float: right; margin-top: 7px; padding: 3px 7px; background: #cfd1c7; color: #65695f; font-size: 10px; letter-spacing: 1px; }
+.workout-tabs button.active { background: var(--ink); color: white; border-color: var(--ink); }
+.workout-tabs button.active small { color: var(--acid); }
+.workout-tabs button.active span { background: var(--acid); color: var(--ink); }
+
+.workout-content { display: grid; gap: 18px; }
+.exercise-card { background: var(--panel); border: 1px solid var(--line); }
+.exercise-header { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.exercise-header h3 { font-size: 29px; }
+.exercise-header p { margin: 0; color: var(--muted); font-size: 12px; }
+.sets { display: grid; }
+.set-row { min-height: 88px; padding: 13px 24px; display: grid; grid-template-columns: 40px 55px 110px minmax(180px, 1fr) 160px; gap: 20px; align-items: center; border-bottom: 1px solid #dedfd8; transition: background 0.2s, opacity 0.2s; }
+.set-row:last-child { border-bottom: 0; }
+.set-row.completed-set { background: #eae8df; opacity: 0.65; }
+.set-row.completed-set .set-load strong { text-decoration: line-through; color: var(--muted); }
+
+.set-checkbox-wrap { display: flex; align-items: center; justify-content: center; }
+.set-checkbox { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--muted); border-radius: 50%; cursor: pointer; position: relative; display: grid; place-items: center; transition: all 0.2s ease; background: white; margin: 0; }
+.set-checkbox:hover { border-color: var(--orange); }
+.set-checkbox:checked { background: var(--orange); border-color: var(--orange); }
+.set-checkbox:checked::after { content: "✓"; color: white; font-size: 13px; font-weight: 900; line-height: 1; display: block; margin-top: -1px; }
+
+.set-number { font-family: "Barlow Condensed"; color: #989b92; font-weight: 700; letter-spacing: 1px; font-size: 12px; }
+.set-number strong { display: block; color: var(--ink); font-size: 24px; letter-spacing: 0; }
+.set-load { display: flex; align-items: baseline; }
+.set-load strong { font-family: "Barlow Condensed"; font-size: 34px; line-height: 1; }
+.set-load span { color: var(--muted); font-size: 12px; margin-left: 4px; }
+
+/* Visual Barbell Sleeve */
+.barbell-sleeve-container { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; min-height: 60px; }
+.barbell-sleeve-container.empty-bar .barbell-sleeve { width: 14px; }
+.barbell-sleeve { display: flex; align-items: center; position: relative; height: 52px; padding-left: 14px; }
+.sleeve-collar { position: absolute; left: 0; width: 14px; height: 46px; background: #3a3f35; border-radius: 4px 1px 1px 4px; border: 1px solid #22251f; z-index: 2; }
+.sleeve-bar { position: absolute; left: 14px; width: 120px; height: 12px; background: #a9aea3; border-top: 1px solid #73776c; border-bottom: 1px solid #73776c; z-index: 0; border-radius: 0 2px 2px 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+.sleeve-plates { display: flex; align-items: center; gap: 2px; position: relative; z-index: 1; }
+
+.plate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #11140f;
+  border-radius: 4px;
+  color: white;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.45);
+  box-shadow: 1px 0 3px rgba(0,0,0,0.15);
+  box-sizing: border-box;
+  writing-mode: horizontal-tb;
+  white-space: nowrap;
+  line-height: 1;
+  text-align: center;
+}
+
+/* KG Plates */
+.plate[data-unit="kg"][data-size="25"] { height: 52px; width: 32px; background: #d32f2f; }
+.plate[data-unit="kg"][data-size="20"] { height: 52px; width: 30px; background: #1976d2; }
+.plate[data-unit="kg"][data-size="15"] { height: 52px; width: 28px; background: #fbc02d; color: #11140f; text-shadow: none; }
+.plate[data-unit="kg"][data-size="10"] { height: 52px; width: 24px; background: #388e3c; }
+.plate[data-unit="kg"][data-size="5"] { height: 40px; width: 22px; background: #ffffff; color: #11140f; text-shadow: none; }
+.plate[data-unit="kg"][data-size="2.5"] { height: 34px; width: 20px; background: #d32f2f; font-size: 8px; }
+.plate[data-unit="kg"][data-size="1.25"] { height: 30px; width: 20px; background: #1976d2; font-size: 8px; letter-spacing: -0.3px; }
+.plate[data-unit="kg"][data-size="1"] { height: 28px; width: 18px; background: #388e3c; font-size: 8px; }
+.plate[data-unit="kg"][data-size="0.75"] { height: 26px; width: 18px; background: #fbc02d; color: #11140f; text-shadow: none; font-size: 7px; letter-spacing: -0.3px; }
+.plate[data-unit="kg"][data-size="0.5"] { height: 24px; width: 18px; background: #ffffff; color: #11140f; text-shadow: none; font-size: 7px; letter-spacing: -0.3px; }
+.plate[data-unit="kg"][data-size="0.25"] { height: 22px; width: 18px; background: #b0bec5; color: #11140f; text-shadow: none; font-size: 7px; letter-spacing: -0.3px; }
+
+/* LBS Plates */
+.plate[data-unit="lbs"][data-size="45"] { height: 52px; width: 32px; background: #d32f2f; }
+.plate[data-unit="lbs"][data-size="35"] { height: 52px; width: 30px; background: #1976d2; }
+.plate[data-unit="lbs"][data-size="25"] { height: 52px; width: 28px; background: #fbc02d; color: #11140f; text-shadow: none; }
+.plate[data-unit="lbs"][data-size="10"] { height: 44px; width: 24px; background: #388e3c; }
+.plate[data-unit="lbs"][data-size="5"] { height: 36px; width: 22px; background: #424242; }
+.plate[data-unit="lbs"][data-size="2.5"] { height: 30px; width: 20px; background: #616161; font-size: 8px; }
+.plate[data-unit="lbs"][data-size="1.25"] { height: 26px; width: 20px; background: #757575; font-size: 8px; letter-spacing: -0.3px; }
+.plate[data-unit="lbs"][data-size="1"] { height: 26px; width: 18px; background: #9e9e9e; font-size: 8px; }
+.plate[data-unit="lbs"][data-size="0.5"] { height: 22px; width: 18px; background: #bdbdbd; font-size: 7px; letter-spacing: -0.3px; }
+.plate[data-unit="lbs"][data-size="0.25"] { height: 20px; width: 18px; background: #e0e0e0; color: #11140f; text-shadow: none; font-size: 7px; letter-spacing: -0.3px; }
+
+.bar-only { color: var(--muted); font-size: 12px; font-style: italic; }
+.plate-label { color: var(--muted); font-size: 11px; margin-top: 5px; }
+.set-type { justify-self: end; text-align: right; }
+.set-type strong { display: inline-block; padding: 5px 8px; background: #e5e5dc; font-family: "Barlow Condensed"; font-size: 12px; letter-spacing: 1px; }
+.set-type small { display: block; color: var(--muted); margin-top: 7px; }
+.rounding-note { background: #fff3d6; color: #765b18; padding: 8px 24px; font-size: 11px; border-top: 1px solid #ead8aa; }
+
+footer { padding: 30px clamp(22px, 7vw, 110px); background: var(--ink); color: #aeb2a7; display: flex; justify-content: space-between; font-size: 12px; }
+footer a { color: var(--acid); text-decoration: none; font-weight: 700; letter-spacing: .7px; }
+
+@media (max-width: 900px) {
+  .hero-stat { display: none; }
+  .setup-grid { grid-template-columns: 1fr; }
+  .set-row { grid-template-columns: 36px 45px 90px 1fr; gap: 12px; }
+  .set-type { display: none; }
+}
+
+@media (max-width: 650px) {
+  .header-meta { display: none; }
+  .hero { min-height: 330px; padding-top: 50px; }
+  .setup-panel, .plan-section { padding-left: 16px; padding-right: 16px; }
+  .lift-inputs { grid-template-columns: 1fr; }
+  .lift-field, .lift-field:nth-child(odd), .lift-field:nth-child(even) { padding: 16px 0; border-right: 0; grid-template-columns: 1fr 105px 82px; }
+  .section-heading { align-items: center; }
+  .text-button { display: none; }
+  .plan-heading { align-items: flex-end; }
+  .week-control { height: 40px; }
+  .week-control label { font-size: 12px; padding-left: 8px; }
+  .week-control input { width: 38px; }
+  .week-control button { width: 34px; }
+  .workout-tabs { gap: 4px; }
+  .workout-tabs button { padding: 13px 8px; font-size: 17px; }
+  .workout-tabs button span { display: none; }
+  .set-row { padding: 13px 10px; grid-template-columns: 28px 36px 70px minmax(0, 1fr); gap: 8px; }
+  .set-load strong { font-size: 26px; }
+  .barbell-sleeve { height: 46px; }
+  .sleeve-collar { height: 40px; width: 12px; }
+  .sleeve-bar { height: 10px; width: 90px; left: 12px; }
+  .sleeve-plates { gap: 1.5px; }
+  
+  .plate[data-unit="kg"][data-size="25"], .plate[data-unit="lbs"][data-size="45"] { height: 44px; width: 26px; }
+  .plate[data-unit="kg"][data-size="20"], .plate[data-unit="lbs"][data-size="35"] { height: 44px; width: 24px; }
+  .plate[data-unit="kg"][data-size="15"], .plate[data-unit="lbs"][data-size="25"] { height: 44px; width: 22px; }
+  .plate[data-unit="kg"][data-size="10"], .plate[data-unit="lbs"][data-size="10"] { height: 44px; width: 20px; }
+  .plate[data-unit="kg"][data-size="5"], .plate[data-unit="lbs"][data-size="5"] { height: 34px; width: 18px; }
+  .plate[data-unit="kg"][data-size="2.5"], .plate[data-unit="lbs"][data-size="2.5"] { height: 28px; width: 17px; font-size: 7px; }
+  .plate[data-unit="kg"][data-size="1.25"], .plate[data-unit="lbs"][data-size="1.25"] { height: 24px; width: 17px; font-size: 7px; }
+  .plate[data-unit="kg"][data-size="1"], .plate[data-unit="lbs"][data-size="1"] { height: 22px; width: 15px; font-size: 7px; }
+  .plate[data-unit="kg"][data-size="0.75"] { height: 20px; width: 15px; font-size: 6px; }
+  .plate[data-unit="kg"][data-size="0.5"], .plate[data-unit="lbs"][data-size="0.5"] { height: 20px; width: 15px; font-size: 6px; }
+  .plate[data-unit="kg"][data-size="0.25"], .plate[data-unit="lbs"][data-size="0.25"] { height: 18px; width: 15px; font-size: 6px; }
+  
+  .exercise-header { padding: 16px; }
+  footer { flex-direction: column; gap: 12px; }
+}

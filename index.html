@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121511">
+  <title>Madcow 5x5 Plate Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Madcow planner home">
+      <span class="brand-mark">M</span>
+      <span>MADCOW <b>5x5</b></span>
+    </a>
+    <div class="header-meta">20 KG BAR <span></span> KG PLATES</div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">WEEKLY LINEAR PROGRESSION</p>
+        <h1>LOAD THE BAR.<br><em>DO THE WORK.</em></h1>
+        <p class="hero-text">Your complete Madcow 5x5 plan, calculated set by set and plate by plate.</p>
+      </div>
+      <div class="hero-stat" aria-hidden="true">
+        <span>5</span><small>SETS</small><i>/</i><span>5</span><small>REPS</small>
+      </div>
+    </section>
+
+    <section class="setup-panel" aria-labelledby="setup-title">
+      <div class="section-heading">
+        <div><span>01</span><h2 id="setup-title">SET YOUR NUMBERS</h2></div>
+        <button class="text-button" id="resetButton" type="button">RESET DEFAULTS</button>
+      </div>
+
+      <div class="setup-grid">
+        <div class="lift-inputs" id="liftInputs"></div>
+        <aside class="settings-card">
+          <div class="settings-row-split">
+            <label>
+              <span>UNITS</span>
+              <select id="unitToggle">
+                <option value="kg" selected>KG (Kilograms)</option>
+                <option value="lbs">LBS (Pounds)</option>
+              </select>
+            </label>
+            <label>
+              <span>BAR WEIGHT</span>
+              <div class="input-wrap">
+                <input type="number" id="barWeightInput" min="0" step="0.5" value="20" aria-label="Barbell weight">
+                <span id="barWeightUnit">KG</span>
+              </div>
+            </label>
+          </div>
+          <label>
+            <span>WEEK 4 TARGET</span>
+            <small>Your current 5-rep max is matched in this week</small>
+            <select id="rampWeeks">
+              <option value="3">Week 3</option>
+              <option value="4" selected>Week 4 (recommended)</option>
+              <option value="5">Week 5</option>
+              <option value="6">Week 6</option>
+            </select>
+          </label>
+          <label>
+            <span>WEDNESDAY PRESS</span>
+            <small>Choose the light-day pressing movement</small>
+            <select id="pressChoice">
+              <option value="incline">Incline Bench</option>
+              <option value="ohp">Overhead Press</option>
+            </select>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="showAssistance">
+            <span>SHOW ASSISTANCE WORK</span>
+          </label>
+          <div class="plate-inventory">
+            <span>AVAILABLE PLATES</span>
+            <small>Tap a plate size to include or exclude it.</small>
+            <div id="inventoryChips"></div>
+            <div class="inventory-footer">
+              <span id="inventoryStatus" aria-live="polite"></span>
+              <button id="selectAllPlates" type="button">SELECT ALL</button>
+            </div>
+            <small>Calculations assume unlimited matching pairs and show one side of the bar.</small>
+          </div>
+          <div class="backup-actions">
+            <span>BACKUP / DATA</span>
+            <div class="backup-buttons">
+              <button id="exportButton" class="outline-button" type="button">EXPORT DATA</button>
+              <button id="importButton" class="outline-button" type="button">IMPORT DATA</button>
+              <input type="file" id="importFile" accept=".json" style="display: none;">
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="plan-section" aria-labelledby="plan-title">
+      <div class="section-heading plan-heading">
+        <div><span>02</span><h2 id="plan-title">YOUR TRAINING WEEK</h2></div>
+        <div class="week-control">
+          <button id="previousWeek" aria-label="Previous week">&#8592;</button>
+          <label>WEEK <input id="weekNumber" type="number" min="1" max="52" value="1"></label>
+          <button id="nextWeek" aria-label="Next week">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="week-summary" id="weekSummary"></div>
+      <div class="workout-tabs" role="tablist" aria-label="Workout day">
+        <button class="active" data-workout="A" role="tab" aria-selected="true"><small>MONDAY</small>WORKOUT A <span>MEDIUM</span></button>
+        <button data-workout="B" role="tab" aria-selected="false"><small>WEDNESDAY</small>WORKOUT B <span>LIGHT</span></button>
+        <button data-workout="C" role="tab" aria-selected="false"><small>FRIDAY</small>WORKOUT C <span>HEAVY</span></button>
+      </div>
+
+      <div id="workoutContent" class="workout-content"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built around the Stronglifts Madcow 5x5 progression model.</p>
+    <a href="https://stronglifts.com/madcow-5x5/workout-guide/" target="_blank" rel="noreferrer">READ THE PROGRAM GUIDE &#8599;</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
